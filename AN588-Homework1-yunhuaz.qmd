@@ -1,0 +1,110 @@
+---
+title: "AN588-Homework1-yunhuaz"
+format: html
+editor: visual
+---
+
+## Challenge 1
+
+```{r}
+string <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+#Splitting the string into each individual characters
+sep_string <- strsplit(string, " ")[[1]]
+
+#Using Seq to find each word by 3
+indices <- seq(from = 1, to = length(sep_string), by = 2)
+
+#Extract every 3rd word
+string_third <- sep_string[indices]
+
+string_third
+```
+
+## Challenge 2
+
+```{r}
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+
+#Extracting the 2nd, 3rd, and 6th columns
+x <- m[, c(2,6,8)]
+
+#Extracting the 6th to 8th row 
+x <- m[6:8,]
+
+#Extracting the elements from row 2, column 2 to row 6, column 9 
+x<- m[2:6, 2:9]
+
+x
+```
+
+## Challenge 3
+
+```{r}
+a <- array(data = 400:1, dim = c(5,5,4,4))
+a
+```
+
+## Challenge 4
+
+```{r}
+#Strepsirhini Nest
+#Lemuroidea
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae","Daubentoniidae")
+
+#Lorisoidea
+Lorisoidea <- c("Lorisidae", "Galagidae")
+
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
+
+names(Strepsirhini) <- list("Lemuroidea", "Lorisoidea")
+
+Strepsirhini
+
+#Anthropoidea Nest
+#Platyrrhini
+Platyrrhini <- c("Cebidae", "Atelidae", "Pitheciidae")
+
+#Catarrhini
+Catarrhini <- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+
+Anthropoidea <- list(Platyrrhini, Catarrhini)
+
+names(Anthropoidea) <- list("Platyrrhini", "Catarrhini")
+
+Anthropoidea
+
+#Haplorhini Nest
+#Tarsioidea 
+Tarsioidea <- "Tarsiidae"
+
+Haplorhini <- list(Anthropoidea, Tarsioidea)
+
+names(Haplorhini) <- list("Anthropoidea", "Tarsioidea")
+Haplorhini
+
+#Primate Nest
+Primate <- list(Haplorhini, Strepsirhini)
+
+names(Primate) <- list("Haplorhini", "Strepsirhini")
+
+Primate
+```
+
+## Challenge 5
+
+```{r}
+
+#Creating a 5x3 matrix and fill by row-wise
+m3 <- matrix(data = c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2), nrow = 5, ncol = 3, byrow = TRUE)
+
+#Matrix to a Dataframe
+m3 <- as.data.frame(m3)
+
+#Second Column to be logical-valued
+m3[[2]] <- as.logical(m3[[2]])
+
+#Third Column to be factor-valued
+m3[[3]] <- as.factor(m3[[3]])
+
+str(m3)
+```
